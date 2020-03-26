@@ -3,9 +3,11 @@ import axios from 'axios';
 import { useRouteMatch, useHistory } from 'react-router-dom';
 import MovieCard from './MovieCard';
 
-function Movie({ addToSavedList }) {
+function Movie({ addToSavedList, setTrigger }) {
   const [movie, setMovie] = useState(null);
   const match = useRouteMatch();
+  
+  console.log(setTrigger)
 
   let { push } = useHistory();
 
@@ -37,6 +39,7 @@ function Movie({ addToSavedList }) {
       .then(res => {
         console.log(res)
         push('/')
+        setTrigger()
       })
       .catch(err => console.error(err))
   }

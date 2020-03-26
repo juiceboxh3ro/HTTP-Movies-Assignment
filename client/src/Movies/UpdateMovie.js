@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const initialMovie = {
+  id: '',
   title: '',
   director: '',
   metascore: '',
@@ -15,21 +16,16 @@ const UpdateMovie = ({movies}) => {
   const {push} = useHistory();
 
   const changeHandler = e => {
-    
-    let value = e.target.value;
-    if (e.target.name === 'metascore') {
-      value = parseInt(value, 10);
-    }
-
     setMovie({
       ...movie,
-      [e.target.name]: value
+      [e.target.name]: e.target.value
     });
   };
 
   const starsHandler = e => {
     var stars = e.target.value;
     var newStars = stars.split(',');
+    
     setMovie({
       ...movie,
       stars: newStars
@@ -44,7 +40,7 @@ const UpdateMovie = ({movies}) => {
         setMovie(res.data)
         push(`/movies/${id}`)
       })
-      .catch(err => console.log(err))
+      .catch(err => console.error(err))
   }
 
   useEffect(() => {
@@ -57,16 +53,16 @@ const UpdateMovie = ({movies}) => {
 
   return (
     <>
-    <h2>Movie Updater 3000</h2>
+    <h2 className="updater-h2">Movie Updater 3000</h2>
     <form id="movie-updater" onSubmit={handleSubmit}>
       <input type="text" name="title" onChange={changeHandler} placeholder="title" value={movie.title}/>
-      <hr />
+      
       <input type="text" name="director" onChange={changeHandler} placeholder="director" value={movie.director}/>
-      <hr />
+      
       <input type="text" name="metascore" onChange={changeHandler} placeholder="metascore" value={movie.metascore}/>
-      <hr />
+      
       <input type="text" name="stars" onChange={starsHandler} placeholder="stars" value={movie.stars}/>
-      <hr />
+      
       <button className="submit-button" onClick={handleSubmit}>Update Movie</button>
     </form>
     </>
