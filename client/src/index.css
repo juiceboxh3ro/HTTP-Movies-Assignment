@@ -59,19 +59,62 @@ body {
   right: 25px;
   border: 1px solid grey;
   padding: 5px 10px;
-  background-color: lightseagreen;
+  background-color: green;
 }
 .save-button:hover {
-  background-color: green;
+  background-color: lightgreen;
   color: white;
 }
-
+.edit-button {
+  position: absolute;
+  top: 55px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: coral;
+}
+.edit-button:hover {
+  background-color: orange;
+  color: white;
+}
+.delete-button {
+  position: absolute;
+  top: 85px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: crimson;
+}
+.delete-button:hover {
+  background-color: red;
+  color: white;
+}
 .home-button {
   padding: 5px 10px;
   background-color: lightskyblue;
 }
-
 .movie-warning {
   color: red;
   text-align: center;
+}
+.updater-h2 {
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+#movie-updater {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+#movie-updater input {
+  padding: 8px;
+  font-size: 1.1rem;
+  border: none;
+  margin-bottom: 5px;
+}
+.submit-button {
+  width: 25%;
+  align-self: flex-end;
 }
